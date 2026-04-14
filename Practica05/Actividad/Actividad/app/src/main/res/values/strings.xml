@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Actividad</string>
+    <string name="title_activity_app_preferencias">AppPreferenciasActivity</string>
+</resources>
