@@ -1,0 +1,69 @@
+package com.hector.inventariotaller
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hector.inventariotaller.data.AppDatabase
+import com.hector.inventariotaller.data.model.Material
+import kotlinx.coroutines.launch
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var adapter: MaterialAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val dao = AppDatabase.getInstance(this).materialDao()
+
+        val etNombre = findViewById<EditText>(R.id.etNombre)
+        val etCategoria = findViewById<EditText>(R.id.etCategoria)
+        val etStock = findViewById<EditText>(R.id.etStock)
+        val etPrecio = findViewById<EditText>(R.id.etPrecio)
+        val etProveedor = findViewById<EditText>(R.id.etProveedor)
+        val btnAgregar = findViewById<Button>(R.id.btnAgregar)
+        val rv = findViewById<RecyclerView>(R.id.rvMateriales)
+
+        adapter = MaterialAdapter(emptyList()) { material ->
+            lifecycleScope.launch { dao.eliminar(material) }
+            Toast.makeText(this, "Eliminado", Toast.LENGTH_SHORT).show()
+        }
+        rv.layoutManager = LinearLayoutManager(this)
+        rv.adapter = adapter
+
+        btnAgregar.setOnClickListener {
+            val nombre = etNombre.text.toString().trim()
+            val categoria = etCategoria.text.toString().trim()
+            val stock = etStock.text.toString().toIntOrNull() ?: 0
+            val precio = etPrecio.text.toString().toDoubleOrNull() ?: 0.0
+            val proveedor = etProveedor.text.toString().trim()
+
+            if (nombre.isEmpty()) {
+                Toast.makeText(this, "Falta el nombre", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            lifecycleScope.launch {
+                dao.insertar(Material(0, nombre, categoria, stock, precio, proveedor))
+            }
+            listOf(etNombre, etCategoria, etStock, etPrecio, etProveedor)
+                .forEach { it.text.clear() }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                dao.listarTodos().collect { lista ->
+                    adapter.actualizar(lista)
+                }
+            }
+        }
+    }
+}
