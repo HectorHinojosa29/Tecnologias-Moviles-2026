@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "655008300387",
+    "project_id": "registroestudiante-14b62",
+    "storage_bucket": "registroestudiante-14b62.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655008300387:android:be014c3ed4a58860032756",
+        "android_client_info": {
+          "package_name": "com.hector.registroestudiante"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlvzJG4PzrFx6_5qhDWsH1n9WvxxLP_nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
