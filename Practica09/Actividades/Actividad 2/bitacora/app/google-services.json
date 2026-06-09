@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "774206014335",
+    "project_id": "autenticacion-cad76",
+    "storage_bucket": "autenticacion-cad76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774206014335:android:361f4dad9e8cbbc2b8504a",
+        "android_client_info": {
+          "package_name": "com.hector.autenticacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774206014335-idc3cj1jvbgmk5q6llcg05cusohnfn0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv4FDbZniVPkLqHcJNr9RMsYu4d6jD4p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774206014335-idc3cj1jvbgmk5q6llcg05cusohnfn0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774206014335:android:af3d68ffc1cee8c5b8504a",
+        "android_client_info": {
+          "package_name": "com.hector.bitacora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774206014335-idc3cj1jvbgmk5q6llcg05cusohnfn0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv4FDbZniVPkLqHcJNr9RMsYu4d6jD4p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774206014335-idc3cj1jvbgmk5q6llcg05cusohnfn0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
